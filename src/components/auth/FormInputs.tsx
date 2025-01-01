@@ -56,14 +56,14 @@ const FormInputs = () => {
   });
 
   return (
-    <form action={() => handleSubmit()}>
+    <form action={() => handleSubmit()} className="w-full">
       <div className="grid grid-cols-2 mb-5">
         <Inputs
           handlerChange={handleChange}
           name="email"
           type="email"
           value={values.email}
-          InputClassName="input w-[max(30vw,250px)]"
+          InputClassName="input"
           error={errors.email}
           placeholder="email"
           icon={faEnvelope}
@@ -73,7 +73,7 @@ const FormInputs = () => {
           name="password"
           type="password"
           value={values.password}
-          InputClassName="input w-[max(30vw,250px)]"
+          InputClassName="input"
           error={errors.password}
           placeholder="password"
           icon={faLock}

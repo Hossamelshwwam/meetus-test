@@ -20,9 +20,9 @@ const Ellipse2 = () => {
           width="1467"
           height="1467"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          color-interpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
