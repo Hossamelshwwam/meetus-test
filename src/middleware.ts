@@ -8,11 +8,14 @@ export default withAuth(
     const isAuth = (await getToken({ req: request })) as JWT | null;
     const pathname = request.nextUrl.pathname;
 
-    // Dashboard Routes
-    const dashboardRoutes = [`/dashboard`];
-    const isDashboardRoute = dashboardRoutes.some((route) =>
+    const ProtectedRoutes = ["/dashboard"];
+    const IsProtectedRoutes = ProtectedRoutes.some((route) =>
       pathname.startsWith(route)
     );
+
+    // Dashboard Routes
+    const dashboardRoutes = "/dashboard";
+    const isDashboardRoute = pathname === dashboardRoutes;
 
     // Authenticated Routes
     const AuthRoute = `/`;
@@ -34,6 +37,11 @@ export default withAuth(
       } else {
         return NextResponse.redirect(new URL(`/`, request.url));
       }
+    }
+
+    // Work Well Protected
+    if (IsProtectedRoutes && !isAuth) {
+      return NextResponse.redirect(new URL("/", request.url));
     }
   },
   {
